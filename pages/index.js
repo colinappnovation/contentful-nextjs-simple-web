@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Post from '../components/post'
+import Header from '../components/header'
 
 const client = require('contentful').createClient({
     space: process.env.SPACE_ID,
@@ -25,8 +26,8 @@ function HomePage() {
       async function getPosts() {
         const contentTypes = await fetchContentTypes()
         const allPosts = await fetchEntriesForContentType(contentTypes[0])
-        console.log(allPosts)
         setPosts([...allPosts])
+        console.log('Fetching records for homepage')
       }
       getPosts()
     }, [])
@@ -35,6 +36,7 @@ function HomePage() {
         <Head>
           <title>Next.js + Contentful DEMO</title>
         </Head>
+        <Header></Header>
         {posts.length > 0
           ? posts.map(p => (
               <Post     

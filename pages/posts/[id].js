@@ -1,13 +1,21 @@
 import {documentToHtmlString} from '@contentful/rich-text-html-renderer'
+import Header from '../../components/header'
 
 const Page = props => {
-    const { title, date, slug, body } = props.item[0].fields
+    const { title, date, slug, body, hero } = props.item[0].fields
+    let src = ''
+    if (hero) {
+        src = hero.fields.file.url
+    }
+   
     const getMarkup = () => {
         return {__html: documentToHtmlString(body)};  
     }
 
     return (
         <div>
+            <Header/>
+            <img src={src} />
             <h1>{title}</h1>
             <p><strong>DATE</strong>:{date}</p>
             <p><strong>SLUG</strong>: {slug}</p>
@@ -26,7 +34,7 @@ Page.getInitialProps = async (context) => {
       })
     
       async function getContentEntry() {
-        console.log(`Fetching entries`)
+        console.log(`Fetching entry for ${id}`)
         const q = 
           {
               content_type: 'post',
