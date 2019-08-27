@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^13.4.0",
+    "@zeit/next-css": "^1.0.1",
     "contentful": "^7.9.1",
     "dotenv": "^8.1.0",
     "next": "^9.0.5",
@@ -16,5 +17,12 @@
     "build": "next build",
     "dev": "next",
     "start": "next start"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "cssnano": "^4.1.10",
+    "dotenv-webpack": "^1.7.0",
+    "postcss-easy-import": "^3.0.0",
+    "tailwindcss": "^1.1.2"
   }
 }

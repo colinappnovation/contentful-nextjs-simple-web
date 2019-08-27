@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import Head from 'next/head'
 import Post from '../components/post'
-import Header from '../components/header'
+import Layout from '../components/layout'
 
 const client = require('contentful').createClient({
     space: process.env.SPACE_ID,
@@ -32,22 +31,23 @@ function HomePage() {
       getPosts()
     }, [])
     return (
-      <>
-        <Head>
-          <title>Next.js + Contentful DEMO</title>
-        </Head>
-        <Header></Header>
+      <Layout>
+        <div class="flex mb-4"> 
         {posts.length > 0
-          ? posts.map(p => (
+          ? posts.map(p => ( 
+            
+                     
               <Post     
                 title={p.fields.title}
                 date={p.fields.date}
                 slug={p.fields.slug}
-                key={p.sys.id}
+                hero={p.fields.hero}
               />
+              
             ))
           : null}
-      </>
+          </div> 
+      </Layout>
     )
   }
   

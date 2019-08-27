@@ -1,27 +1,22 @@
 import {documentToHtmlString} from '@contentful/rich-text-html-renderer'
-import Header from '../../components/header'
+import Layout from '../../components/layout'
 
 const Page = props => {
     const { title, date, slug, body, hero } = props.item[0].fields
     let src = ''
-    if (hero) {
-        src = hero.fields.file.url
-    }
-   
+    if (hero) src = hero.fields.file.url
+       
     const getMarkup = () => {
         return {__html: documentToHtmlString(body)};  
     }
 
     return (
-        <div>
-            <Header/>
-            <img src={src} />
+        <Layout>            
+            <img src={`${src}?w=1440&h=600`} />
             <h1>{title}</h1>
-            <p><strong>DATE</strong>:{date}</p>
-            <p><strong>SLUG</strong>: {slug}</p>
-            
+            <p><strong>DATE</strong>:{date}</p>        
             <div dangerouslySetInnerHTML={getMarkup()} />
-        </div>
+        </Layout>
     )
 }
  
