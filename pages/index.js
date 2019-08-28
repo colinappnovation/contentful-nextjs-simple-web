@@ -32,7 +32,9 @@ function HomePage() {
     }, [])
     return (
       <Layout>
-        <div class="flex mb-4"> 
+        <h1 className="uppercase text-4xl text-gray-800">Insights</h1>
+        <p className="text-xl mb-5 text-gray-600">To understand the future you have to be grounded in the now. We guide our clients as their industries evolve with the changing digital landscape.</p>
+        <div class="flex flex-wrap mb-4">
         {posts.length > 0
           ? posts.map(p => ( 
             
@@ -42,6 +44,7 @@ function HomePage() {
                 date={p.fields.date}
                 slug={p.fields.slug}
                 hero={p.fields.hero}
+                standfirst={p.fields.standfirst}
               />
               
             ))

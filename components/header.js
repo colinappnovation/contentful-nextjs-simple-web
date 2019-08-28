@@ -2,10 +2,14 @@ import Link from 'next/link'
 
 const Header = () => {
     return (
-        <div>
+        <div className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <ul class="flex">
+            <li class="mr-6">
             <Link href="/">
-                <a>Home</a>
+                <a className="block mr-4 text-white hover:font-extrabold">Home</a>
             </Link>
+            </li>
+        </ul>
         </div>
     )
 }
