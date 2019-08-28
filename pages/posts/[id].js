@@ -1,8 +1,17 @@
 import {documentToHtmlString} from '@contentful/rich-text-html-renderer'
 import Layout from '../../components/layout'
 import moment from 'moment'
+import ErrorPage from 'next/error'
 
 const Page = props => {
+ 
+    // Loading a page which has been unpublished!
+    if (props.item.length == 0) {
+     return (
+      <ErrorPage statusCode="404" />
+     ) 
+    }
+
     const { title, date, body, hero } = props.item[0].fields
     let src = ''
     if (hero) src = hero.fields.file.url
