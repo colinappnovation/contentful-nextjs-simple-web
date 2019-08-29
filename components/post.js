@@ -22,7 +22,7 @@ function Post({ id, title, slug, hero, standfirst, date, author}) {
             <img className="w-10 h-10 rounded-full mr-4" src={url} alt={`Avatar of ${fullname}`} />
             <div className="text-sm">
               <p className="text-gray-500 text-sm">{fullname}</p>
-              <p className="text-gray-500 text-sm">{jobTitle}</p>
+              <p className="text-gray-500 text-sm mt-0">{jobTitle}</p>
             </div>
           </div>
         </div>

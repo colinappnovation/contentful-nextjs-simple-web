@@ -23,9 +23,9 @@ const Page = props => {
     }
 
     return (
-        <Layout>
+        <Layout>          
             <h1 className='font-bold text-6xl'>{title}</h1>
-            <p className="mt-2 mb-2"><strong>Published:</strong> {fdate}</p>        
+            <p className="mt-2 mb-2"><strong>Published:</strong> {fdate}</p>    
             <img src={`${src}?w=1440&h=600`} />
             <div id="body" className="mt-8" dangerouslySetInnerHTML={getMarkup()} />
         </Layout>
