@@ -7,7 +7,7 @@ const client = require('contentful').createClient({
     accessToken: process.env.ACCESS_TOKEN
 })
 
-function HomePage() {
+const HomePage = () => {  
     async function fetchContentTypes() {
       const types = await client.getContentTypes()
       if (types.items) return types.items
