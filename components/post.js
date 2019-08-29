@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import moment from 'moment'
+import day from 'dayjs'
 
 function Post({ id, title, slug, hero, standfirst, date, author}) {
-    const fdate = moment(date).format("LL")
+  const fdate = day(date).format("DD MMMM YYYY")
 
     const {fullname, jobTitle} = author.fields
     const { url } = author.fields.profilePicture.fields.file       

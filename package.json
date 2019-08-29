@@ -8,8 +8,8 @@
     "@contentful/rich-text-html-renderer": "^13.4.0",
     "@zeit/next-css": "^1.0.1",
     "contentful": "^7.9.1",
+    "dayjs": "^1.8.16",
     "dotenv": "^8.1.0",
-    "moment": "^2.24.0",
     "next": "^9.0.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"

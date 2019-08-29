@@ -1,6 +1,6 @@
 import {documentToHtmlString} from '@contentful/rich-text-html-renderer'
 import Layout from '../../components/layout'
-import moment from 'moment'
+import day from 'dayjs'
 import ErrorPage from 'next/error'
 
 const Page = props => {
@@ -16,7 +16,7 @@ const Page = props => {
     let src = ''
     if (hero) src = hero.fields.file.url
 
-    const fdate = moment(date).format("LL")
+    const fdate = day(date).format("DD MMMM YYYY")
 
     const getMarkup = () => {
         return {__html: documentToHtmlString(body)};  
