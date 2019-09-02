@@ -1,7 +1,10 @@
 import Link from 'next/link'
+import HeadMeta from './head';
 
 const Header = () => {
     return (
+        <>
+        <HeadMeta/>
         <div className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
         <ul className="flex">
             <li key="home" className="mr-6">
@@ -11,6 +14,7 @@ const Header = () => {
             </li>
         </ul>
         </div>
+        </>
     )
 }
 
