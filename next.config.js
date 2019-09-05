@@ -50,6 +50,7 @@ const Dotenv = require('dotenv-webpack')
 //   }
 
 module.exports = withCSS({
+    target: 'serverless',
     cssModules: false,
     webpack: function (config) {
         
