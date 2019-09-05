@@ -2,6 +2,7 @@ import {documentToHtmlString} from '@contentful/rich-text-html-renderer'
 import Layout from '../../components/layout'
 import day from 'dayjs'
 import ErrorPage from 'next/error'
+import client from '../../lib/client'
 
 const Page = props => {
  
@@ -34,11 +35,6 @@ const Page = props => {
  
 Page.getInitialProps = async (context) => {
      const { id } = context.query;  
-
-      const c = require('contentful').createClient({
-        space: process.env.SPACE_ID,
-        accessToken: process.env.ACCESS_TOKEN
-      })
     
       async function getContentEntry() {
         console.log(`Fetching entry for ${id}`)
@@ -49,8 +45,7 @@ Page.getInitialProps = async (context) => {
             }
   
         
-      const entries = await c
-      .getEntries(q)    
+      const entries = await client.getEntries(q)    
       if (entries.items) return entries.items
       console.log(`Error getting entry.`)
     }      

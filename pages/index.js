@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react'
 import Post from '../components/post'
 import Layout from '../components/layout'
-
-const client = require('contentful').createClient({
-    space: process.env.SPACE_ID,
-    accessToken: process.env.ACCESS_TOKEN
-})
+import client from '../lib/client'
 
 const HomePage = () => {  
     async function fetchContentTypes() {
