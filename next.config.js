@@ -1,70 +1,50 @@
 // const webpack = require("webpack");
-const withCSS = require('@zeit/next-css')
-const path = require('path')
-const Dotenv = require('dotenv-webpack')
+const withCSS = require("@zeit/next-css");
+const path = require("path");
+const Dotenv = require("dotenv-webpack");
+const withPurgeCss = require("next-purgecss");
 
-// // Initialize doteenv library
-// require("dotenv").config()
-// module.exports = withCSS({})
-// // module.exports = {
-//   webpack: config => {
-//     // Fixes npm packages that depend on `fs` module
-//     config.node = {
-//       fs: 'empty'
-//     }
-//     /**
-//      * Returns environment variables as an object
-//      */
-//     const env = Object.keys(process.env).reduce((acc, curr) => {
-//              acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
-//              return acc;
-//    }, {});
+const nextConfig = {
+  target: "serverless",
+  poweredByHeader: false,
+  cssModules: false
+};
 
-//     /** Allows you to create global constants which can be configured
-//     * at compile time, which in our case is our environment variables
-//     */
-//     config.plugins.push(new webpack.DefinePlugin(env));
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+  }
+}
 
-    
+module.exports = withCSS(
+  withPurgeCss({
+    ...nextConfig,
+    purgeCss: {
+      extractors: [
+        {
+          extractor: TailwindExtractor,
+          extensions: ["html", "js", "css"]
+        }
+      ],
+      whitelist: () => ['text-base']
+    },
+    cssLoaderOptions: {
+      importLoaders: 1,
+      localIdentName: "[local]_[hash:base64:5]"
+    },
+    webpack: config => {
+      config.plugins = config.plugins || [];
 
-//     return config
-//   },
-//   withCSS: withCSS({})
-// }
+      config.plugins = [
+        ...config.plugins,
+        // Read the .env file
+        new Dotenv({
+          path: path.join(__dirname, ".env"),
+          systemvars: true
+        })
+      ];
 
-// module.exports = {
-//     webpack: config => {
-//       config.plugins = config.plugins || []
-  
-//       config.plugins = [
-//         ...config.plugins,
-//         // Read the .env file
-//         new Dotenv({
-//           path: path.join(__dirname, '.env'),
-//           systemvars: true
-//         })
-//       ]
-  
-//       return config
-//     }
-//   }
-
-module.exports = withCSS({
-    target: 'serverless',
-    poweredByHeader: false,
-    cssModules: false,
-    webpack: function (config) {
-        
-        config.plugins = config.plugins || []
-
-                config.plugins = [
-                ...config.plugins,
-                // Read the .env file
-                new Dotenv({
-                    path: path.join(__dirname, '.env'),
-                    systemvars: true
-                })
-                ]
-    
-    return config;}
-  });
+      return config;
+    }
+  })
+);
