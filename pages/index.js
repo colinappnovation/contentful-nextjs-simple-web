@@ -1,7 +1,13 @@
 import Post from '../components/post';
 import Layout from '../components/layout';
 import client from '../lib/client';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
+
+/*
+  TAKE NOTE:
+    Using React Hooks has the sideaffect of bypassing SSR capabilities of Next.js! 
+    So the page would be delivered, then hydrated client side ALWAYS!
+*/
 
 const HomePage = (props) => {
   // useState React Hook for functional components
