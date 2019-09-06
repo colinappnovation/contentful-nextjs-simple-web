@@ -5,24 +5,24 @@ import { useEffect, useState } from 'react';
 
 const HomePage = (props) => {
   // useState React Hook for functional components
-	const [ posts, setPosts ] = useState([]);
+	// const [ posts, setPosts ] = useState([]);
 
-	async function fetchEntriesForContentType(content_type) {
-    // ES6 object shorthand feature
-		const entries = await client.getEntries({ content_type });
-		if (entries.items) return entries.items;
-		console.log(`Error getting Entries for ${contentType.name}.`);
-	}
+	// async function fetchEntriesForContentType(content_type) {
+  //   // ES6 object shorthand feature
+	// 	const entries = await client.getEntries({ content_type });
+	// 	if (entries.items) return entries.items;
+	// 	console.log(`Error getting Entries for ${contentType.name}.`);
+	// }
 
-  // React Hooks in action! Without the [] at end of function as second param, infinite loop occurs!
-	useEffect(() => {
-		async function getPosts() {
-			const allPosts = await fetchEntriesForContentType('post');
-			console.log('Fetching records for homepage');
-			setPosts([ ...allPosts ]);
-		}
-		getPosts();
-	}, []);
+  // // React Hooks in action! Without the [] at end of function as second param, infinite loop occurs!
+	// useEffect(() => {
+	// 	async function getPosts() {
+	// 		const allPosts = await fetchEntriesForContentType('post');
+	// 		console.log('Fetching records for homepage');
+	// 		setPosts([ ...allPosts ]);
+	// 	}
+	// 	getPosts();
+	// }, []);
 
 	return (
 		<Layout>
@@ -32,8 +32,8 @@ const HomePage = (props) => {
 				evolve with the changing digital landscape.
 			</p>
 			<div className="flex flex-wrap mb-4">
-				{posts.length > 0 ? (
-					posts.map((p) => (
+				{props.posts.length > 0 ? (
+					props.posts.map((p) => (
 						<Post
 							title={p.fields.title}
 							date={p.fields.date}
@@ -53,30 +53,30 @@ const HomePage = (props) => {
 // STANDARD APPROACH using getInitialProps
 // Intentionally left here for example.
 
-// HomePage.getInitialProps = async () => {
-//    async function fetchContentTypes() {
-//     const types = await client.getContentTypes()
-//     if (types.items) return types.items
-//     console.log('Error getting Content Types.')
-//   }
-//   async function fetchEntriesForContentType(contentType) {
-//     const entries = await client.getEntries({
-//       content_type: contentType.sys.id
-//     })
-//     if (entries.items) return entries.items
-//     console.log(`Error getting Entries for ${contentType.name}.`)
-//   }
+HomePage.getInitialProps = async () => {
+   async function fetchContentTypes() {
+    const types = await client.getContentTypes()
+    if (types.items) return types.items
+    console.log('Error getting Content Types.')
+  }
+  async function fetchEntriesForContentType(contentType) {
+    const entries = await client.getEntries({
+      content_type: contentType.sys.id
+    })
+    if (entries.items) return entries.items
+    console.log(`Error getting Entries for ${contentType.name}.`)
+  }
 
-//   async function getPosts() {
-//     const contentTypes = await fetchContentTypes()
-//     const allPosts = await fetchEntriesForContentType(contentTypes[0])
-//     console.log('Fetching records for homepage')
-//     return allPosts
-//   }
+  async function getPosts() {
+    const contentTypes = await fetchContentTypes()
+    const allPosts = await fetchEntriesForContentType(contentTypes[0])
+    console.log('Fetching records for homepage')
+    return allPosts
+  }
 
-//    return {
-//      posts: [...await getPosts()]
-//    }
-// }
+   return {
+     posts: [...await getPosts()]
+   }
+}
 
 export default HomePage;
