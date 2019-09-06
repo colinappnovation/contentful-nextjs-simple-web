@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import day from 'dayjs'
 import ErrorPage from 'next/error'
 import client from '../../lib/client'
+import BlogListing from '../../components/blogs'
 
 const Page = props => {
  
@@ -14,6 +15,8 @@ const Page = props => {
     }
 
     const { title, date, body, hero } = props.item[0].fields
+    const { id: ident } = props.item[0].sys
+
     let src = ''
     if (hero) src = hero.fields.file.url
 
@@ -29,6 +32,7 @@ const Page = props => {
             <p className="mt-2 mb-2"><strong>Published:</strong> {fdate}</p>    
             <img src={`${src}?w=1440&h=600`} />
             <div id="body" className="mt-8" dangerouslySetInnerHTML={getMarkup()} />
+            <BlogListing filter={ident}/>
         </Layout>
     )
 }
