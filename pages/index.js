@@ -4,16 +4,17 @@ import client from '../lib/client';
 import { useEffect, useState } from 'react';
 
 const HomePage = (props) => {
+  // useState React Hook for functional components
 	const [ posts, setPosts ] = useState([]);
 
-	async function fetchEntriesForContentType(contentType) {
-		const entries = await client.getEntries({
-			content_type: contentType
-		});
+	async function fetchEntriesForContentType(content_type) {
+    // ES6 object shorthand feature
+		const entries = await client.getEntries({ content_type });
 		if (entries.items) return entries.items;
 		console.log(`Error getting Entries for ${contentType.name}.`);
 	}
 
+  // React Hooks in action! Without the [] at end of function as second param, infinite loop occurs!
 	useEffect(() => {
 		async function getPosts() {
 			const allPosts = await fetchEntriesForContentType('post');
@@ -48,6 +49,9 @@ const HomePage = (props) => {
 		</Layout>
 	);
 };
+
+// STANDARD APPROACH using getInitialProps
+// Intentionally left here for example.
 
 // HomePage.getInitialProps = async () => {
 //    async function fetchContentTypes() {
