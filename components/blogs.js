@@ -38,15 +38,15 @@ const BlogListing = (props) => {
 	// }, [filter]);
 
 	return (
-		<div className="float-right bg-gray-200 p-4 m-5">
-	    	<h2 className="uppercase mb-5 ">More from the blog</h2>
-			<ul className="list-none sm:list-disc md:list-decimal lg:list-disc xl:list-none">
+		<div className="float-right bg-gray-200 p-4 m-5 w-1/4">
+	    	<h2 className="uppercase mb-5 font-bold">More from the blog</h2>
+			<ul className="list-none">
 				{blogs.length > 0 ? (
 					blogs.map((b) => {
 						return (
-							<li key={b.id}>
+							<li key={b.id} className="mb-2">
 								<Link href="/posts/[id]" as={`${b.slug}`}>
-									<a>{b.title} </a>
+									<a className="hover:underline">{b.title} </a>
 								</Link>
 							</li>
 						);
