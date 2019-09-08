@@ -45,7 +45,7 @@ const BlogListing = (props) => {
 				{blogs.length > 0 ? (
 					blogs.map((b) => {
 						return (
-							<li>
+							<li key={b.id}>
 								<Link href="/posts/[id]" as={`${b.slug}`}>
 									<a>{b.title} </a>
 								</Link>
