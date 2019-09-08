@@ -6,16 +6,15 @@ import BlogListing from "../../components/blogs";
 import api from "../../lib/api";
 
 const Page = props => {
- 
   // Loading a page which has been unpublished!
   if (props.blog.fields == undefined) {
     return <ErrorPage statusCode="404" />;
   }
-  
-  const { blog, blogs } = props
+
+  const { blog, blogs } = props;
 
   const { title, date, body, hero } = blog.fields;
-  const src = (hero) ? hero.fields.file.url : "";
+  const src = hero ? hero.fields.file.url : "";
   const fdate = day(date).format("DD MMMM YYYY");
 
   const getMarkup = () => {
@@ -35,18 +34,17 @@ const Page = props => {
   );
 };
 
-Page.getInitialProps = async ({query}) => {
-
+Page.getInitialProps = async ({ query }) => {
   const { id } = query;
-  const { items, total } = await api.getPostBySlug('post', id);
+  const { items, total } = await api.getPostBySlug("post", id);
 
   if (total == 1) {
-    const blog = items[0]
-    const blogs = await api.getBlogsWithNotInclude(blog.sys.id)    
-    return {blog, blogs}
-  } 
-  
-  return {} 
-}
+    const blog = items[0];
+    const blogs = await api.getBlogsWithNotInclude(blog.sys.id);
+    return { blog, blogs };
+  }
+
+  return {};
+};
 
 export default Page;
