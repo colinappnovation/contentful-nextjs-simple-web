@@ -1,6 +1,6 @@
 import Post from '../components/post';
 import Layout from '../components/layout';
-import client from '../lib/client';
+import api from '../lib/api'
 // import { useEffect, useState } from 'react';
 
 /*
@@ -60,28 +60,8 @@ const HomePage = (props) => {
 // Intentionally left here for example.
 
 HomePage.getInitialProps = async () => {
-   async function fetchContentTypes() {
-    const types = await client.getContentTypes()
-    if (types.items) return types.items
-    console.log('Error getting Content Types.')
-  }
-  async function fetchEntriesForContentType(contentType) {
-    const entries = await client.getEntries({
-      content_type: contentType.sys.id
-    })
-    if (entries.items) return entries.items
-    console.log(`Error getting Entries for ${contentType.name}.`)
-  }
-
-  async function getPosts() {
-    const contentTypes = await fetchContentTypes()
-    const allPosts = await fetchEntriesForContentType(contentTypes[0])
-    console.log('Fetching records for homepage')
-    return allPosts
-  }
-
    return {
-     posts: [...await getPosts()]
+     posts: await api.getPosts()
    }
 }
 
