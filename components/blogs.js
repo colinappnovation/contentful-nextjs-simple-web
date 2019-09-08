@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import api from '../lib/api'
 
 /*
     Use effect means no SSR therefore no content on view source etc.
