@@ -36,8 +36,8 @@ const Page = blog => {
 
 Page.getInitialProps = async context => {
   const { id } = context.query;
-  const { items } = await api.getPostBySlug('post', id);
-  return items[0] || {}
+  const { items, total } = await api.getPostBySlug('post', id);
+  return total == 1 ? items[0] : {}
 }
 
 export default Page;
