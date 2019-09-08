@@ -39,8 +39,7 @@ const BlogListing = (props) => {
 
 	return (
 		<div className="float-right bg-gray-200 p-4 m-5">
-			{console.log('In the component..', blogs)}
-			<h2 className="uppercase mb-5 ">More from the blog</h2>
+	    	<h2 className="uppercase mb-5 ">More from the blog</h2>
 			<ul className="list-none sm:list-disc md:list-decimal lg:list-disc xl:list-none">
 				{blogs.length > 0 ? (
 					blogs.map((b) => {
