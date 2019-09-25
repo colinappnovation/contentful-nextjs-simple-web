@@ -2,11 +2,10 @@ import Layout from '../components/layout'
 import api from '../lib/api'
 
 const ContactUs = (props) => {
-  console.log(props)
 	return (
 		<Layout>
 			<h1 className="text-6xl">How will your business reach ahead?</h1>
-			<p>
+			<p className="text-xl mb-5 text-gray-600">
 				Our local teams are working today to create the business of tomorrow. Get in touch and let's find out
 				how we transform your industry, together.
 			</p>
