@@ -12,6 +12,11 @@ const Header = () => {
                 <a className="block mr-4 text-white hover:font-extrabold">Home</a>
             </Link>
             </li>
+            <li key="contact-us" className="mr-6">
+            <Link href="/contact-us">
+                <a className="block mr-4 text-white hover:font-extrabold">Contact Us</a>
+            </Link>
+            </li>
         </ul>
         </div>
         </>
