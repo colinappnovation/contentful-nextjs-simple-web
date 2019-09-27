@@ -9,6 +9,11 @@ const navStyle = {
     padding: '10px'
 }
 
+const markerStlye = {
+    width: '30px',
+    height: '30px'
+}
+
 class Map extends Component {
     state = {
         viewport: {
@@ -33,6 +38,9 @@ class Map extends Component {
                 <div className="nav" style={navStyle}>
                     <NavigationControl/>
                 </div>
+                    <Marker latitude={49.2838563} longitude={-123.0999902}>
+                        <img src="/static/marker.png" alt="Vancouver Office" style={markerStlye} />
+                    </Marker>
                 </ReactMapGL>
         );
     }
