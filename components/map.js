@@ -1,7 +1,6 @@
 import {Component} from 'react';
 import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
 
-
 const navStyle = {
     position: 'absolute',
     top: 0,
@@ -14,14 +13,20 @@ const markerStlye = {
     height: '30px'
 }
 
+const Markers = ({ offices } = props) => {
+    return offices.map(l => (
+        <Marker key={l.name} latitude={parseFloat(l.mapCoords.lat)} longitude={parseFloat(l.mapCoords.lon)}>
+            <img src="/static/marker.png" style={markerStlye} />
+        </Marker>        
+     ))
+}
+
 class Map extends Component {
     state = {
         viewport: {
             width: '70vw',
             height: '70vh',
-            latitude: 41.5868,
-            longitude: -93.625,
-            zoom: 13
+            zoom: 1
         }
     };    
 
@@ -38,10 +43,9 @@ class Map extends Component {
                 <div className="nav" style={navStyle}>
                     <NavigationControl/>
                 </div>
-                    <Marker latitude={49.2838563} longitude={-123.0999902}>
-                        <img src="/static/marker.png" alt="Vancouver Office" style={markerStlye} />
-                    </Marker>
+                   <Markers offices={this.props.offices} />
                 </ReactMapGL>
+                 
         );
     }
 }

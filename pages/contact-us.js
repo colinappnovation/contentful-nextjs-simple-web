@@ -3,7 +3,7 @@ import api from '../lib/api'
 
 import dynamic from 'next/dynamic';
 
-const DynamicComponentWithNoSSR = dynamic(() => import('../components/map'), {
+const DynamicComponentWithNoSSR = dynamic((props) => import('../components/map'), {
     ssr: false
 });
 
@@ -25,7 +25,7 @@ const ContactUs = (props) => {
       { props.locations.map(l => (
 
 	
-			<div className="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-1 flex flex-col justify-between leading-normal">
+			<div key={l.name} className="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-1 flex flex-col justify-between leading-normal">
 				<div className="mb-8">					
 					<div className="text-gray-900 font-bold text-xl mb-2">{l.name}</div>
 					<p>{l.address}</p>
@@ -35,7 +35,7 @@ const ContactUs = (props) => {
 
 	  ))}
 	  </div>
-		<DynamicComponentWithNoSSR />
+		<DynamicComponentWithNoSSR offices={props.locations} />
 		</Layout>
 	);
 };
@@ -44,8 +44,7 @@ ContactUs.getInitialProps = async () => {
 	const locations = await api.getLocations();
 	return {
 		locations: locations.items.map((l) => {
-			const { name, address, telephone } = l.fields;
-			return { name, address, telephone };
+			return l.fields
 		})
 	};
 };
