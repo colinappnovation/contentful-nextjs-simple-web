@@ -2,7 +2,8 @@
     "build": {
     "env": {
       "SPACE_ID": "@space_id",
-      "ACCESS_TOKEN": "@access_token"
+      "ACCESS_TOKEN": "@access_token",
+      "MAPBOX_TOKEN": "@mapbox_token"
     }
   }
 }
