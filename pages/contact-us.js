@@ -1,9 +1,21 @@
 import Layout from '../components/layout'
 import api from '../lib/api'
 
+import dynamic from 'next/dynamic';
+
+const DynamicComponentWithNoSSR = dynamic(() => import('../components/map'), {
+    ssr: false
+});
+
+import Head from 'next/head'
+
+
 const ContactUs = (props) => {
 	return (
 		<Layout>
+			<Head>
+				<link href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css" rel="stylesheet" />
+			</Head>
 			<h1 className="text-6xl">How will your business reach ahead?</h1>
 			<p className="text-xl mb-5 text-gray-600">
 				Our local teams are working today to create the business of tomorrow. Get in touch and let's find out
@@ -23,7 +35,7 @@ const ContactUs = (props) => {
 
 	  ))}
 	  </div>
-		
+		<DynamicComponentWithNoSSR />
 		</Layout>
 	);
 };
