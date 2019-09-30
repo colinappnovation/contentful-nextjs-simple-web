@@ -28,7 +28,7 @@ const Page = props => {
         <strong>Published:</strong> {fdate}
       </p>
       <picture>
-        <source srcset={`${src}?w=1440&h=600&fm=webp`} type="image/webp"></source>
+        <source srcSet={`${src}?w=1440&h=600&fm=webp`} type="image/webp"></source>
         <img src={`${src}?w=1440&h=600`} />
       </picture>
       

@@ -10,7 +10,7 @@ function Post({ id, title, slug, hero, standfirst, date, author}) {
     return (
       <div className="max-w-sm rounded overflow-hidden shadow-lg m-1">
         <picture>
-          <source srcset={`${hero.fields.file.url}?fm=webp&w=384&fit=scale&h=192`} type="image/webp"></source>
+          <source srcSet={`${hero.fields.file.url}?fm=webp&w=384&fit=scale&h=192`} type="image/webp"></source>
           <img className="w-full" src={`${hero.fields.file.url}?w=384&fit=scale&h=192`}></img>
         </picture>        
         <div className="px-6 py-4" key={id}>
@@ -23,7 +23,7 @@ function Post({ id, title, slug, hero, standfirst, date, author}) {
           </div>
           <div className="flex items-center">
             <picture>
-              <source srcset={`${url}?fm=webp`} type="image/webp"></source>
+              <source srcSet={`${url}?fm=webp`} type="image/webp"></source>
               <img className="w-10 h-10 rounded-full mr-4" src={`${url}`} alt={`Avatar of ${fullname}`} />
             </picture>            
             <div className="text-sm">
