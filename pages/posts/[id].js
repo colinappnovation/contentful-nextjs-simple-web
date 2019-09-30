@@ -27,7 +27,11 @@ const Page = props => {
       <p className="mt-2 mb-2">
         <strong>Published:</strong> {fdate}
       </p>
-      <img src={`${src}?w=1440&h=600`} />
+      <picture>
+        <source srcset={`${src}?w=1440&h=600&fm=webp`} type="image/webp"></source>
+        <img src={`${src}?w=1440&h=600`} />
+      </picture>
+      
       <BlogListing blogs={blogs} />
       <div id="body" className="mt-8" dangerouslySetInnerHTML={getMarkup()} />
     </Layout>
