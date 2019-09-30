@@ -19,8 +19,21 @@ const Page = props => {
   const src = hero ? hero.fields.file.url : "";
   const fdate = day(date).format("DD MMMM YYYY");
 
+
   const getMarkup = () => {
-    return { __html: documentToHtmlString(body) };
+
+    let options = {
+      renderNode: {
+        'embedded-asset-block': (node) =>
+          `<picture>
+            <source srcSet="${node.data.target.fields.file.url}?w=500&h=300&fm=webp&fit=fill" type="image/webp"></source>
+            <img src="${node.data.target.fields.file.url}?h=300&w=500&fit=fill" style="margin:10px; border: 1px solid #c0c0c0" />
+          </picture>
+          `
+      }
+    }
+
+    return { __html: documentToHtmlString(body, options) };
   };
 
   return (
