@@ -10,8 +10,8 @@ function Post({ id, title, slug, hero, standfirst, date, author}) {
     return (
       <div className="max-w-sm rounded overflow-hidden shadow-lg m-1">
         <picture>
-          <source srcSet={`${hero.fields.file.url}?fm=webp&w=384&fit=scale&h=192`} type="image/webp"></source>
-          <img className="w-full" src={`${hero.fields.file.url}?w=384&fit=scale&h=192`}></img>
+          <source srcSet={`${hero.fields.file.url}?fm=webp&w=384&fit=fill&h=192`} type="image/webp"></source>
+          <img className="w-full" src={`${hero.fields.file.url}?w=384&fit=fill&h=192`}></img>
         </picture>        
         <div className="px-6 py-4" key={id}>
           <div className="font-bold text-xl mb-2">           
