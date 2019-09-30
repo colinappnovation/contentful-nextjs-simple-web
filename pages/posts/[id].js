@@ -5,6 +5,8 @@ import ErrorPage from "next/error";
 import BlogListing from "../../components/blogs";
 import api from "../../lib/api";
 
+export const config = { amp: 'hybrid' }
+
 const Page = props => {
   // Loading a page which has been unpublished!
   if (props.blog.fields == undefined) {
