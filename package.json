@@ -5,12 +5,18 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.1",
+    "@apollo/react-ssr": "^3.1.1",
     "@contentful/rich-text-html-renderer": "^13.4.0",
     "@zeit/next-css": "^1.0.1",
+    "apollo-boost": "^0.4.4",
+    "apollo-link-context": "^1.0.19",
     "contentful": "^7.9.1",
     "dayjs": "^1.8.16",
     "dotenv": "^8.1.0",
+    "graphql": "^14.5.8",
     "next": "^9.0.5",
+    "next-apollo": "^3.1.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-map-gl": "^5.0.11"
