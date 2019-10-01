@@ -12,6 +12,7 @@ import Layout from '../components/layout';
 
 // REST API BASED
 import api from '../lib/api'
+import { timeInterval } from 'rxjs/operator/timeInterval';
 
 // HOOKS EXAMPLE
 // import { useEffect, useState } from 'react';
@@ -66,7 +67,7 @@ import api from '../lib/api'
 							slug={p.fields.slug}
 							hero={p.fields.hero}
 							standfirst={p.fields.standfirst}
-							author={p.fields.blogger}
+							blogger={p.fields.blogger}
 							key={p.sys.id}
 						/>
 					))

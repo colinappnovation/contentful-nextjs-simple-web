@@ -7,7 +7,7 @@ function Post(props) {
     const fdate = day(date).format("DD MMMM YYYY")  
     const { url: hero }  = props.hero.fields.file
     // const { id } = props.sys      
-    const { fullname, jobTitle, profilePicture } = props.author.fields
+    const { fullname, jobTitle, profilePicture } = props.blogger.fields
 
     return (
       <div className="max-w-sm rounded overflow-hidden shadow-lg m-1">
