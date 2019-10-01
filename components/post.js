@@ -5,9 +5,9 @@ function Post(props) {
    
     const { slug, title, standfirst, date } = props
     const fdate = day(date).format("DD MMMM YYYY")  
-    const { url: hero }  = props.hero
-    const { id } = props.sys      
-    const { fullname, jobTitle, profilePicture } = props.blogger
+    const { url: hero }  = props.hero.fields.file
+    // const { id } = props.sys      
+    const { fullname, jobTitle, profilePicture } = props.author.fields
 
     return (
       <div className="max-w-sm rounded overflow-hidden shadow-lg m-1">
@@ -15,7 +15,7 @@ function Post(props) {
           <source srcSet={`${hero}?fm=webp&w=384&fit=fill&h=192`} type="image/webp"></source>
           <img className="w-full" src={`${hero}?w=384&fit=fill&h=192`}></img>
         </picture>        
-        <div className="px-6 py-4" key={id}>
+        <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">           
               <Link href="/posts/[id]" as={`posts/${slug}`} >
                 <a>{title} </a>         
@@ -25,8 +25,8 @@ function Post(props) {
           </div>
           <div className="flex items-center">
             <picture>
-              <source srcSet={`${profilePicture.url}?fm=webp`} type="image/webp"></source>
-              <img className="w-10 h-10 rounded-full mr-4" src={`${profilePicture.url}`} alt={`Avatar of ${fullname}`} />
+              <source srcSet={`${profilePicture.fields.file.url}?fm=webp`} type="image/webp"></source>
+              <img className="w-10 h-10 rounded-full mr-4" src={`${profilePicture.fields.file.url}`} alt={`Avatar of ${fullname}`} />
             </picture>            
             <div className="text-sm">
               <p className="text-gray-500 text-sm">{fullname}</p>
