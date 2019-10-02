@@ -5,8 +5,7 @@ function PostDetail(props) {
    
     const { slug, title, standfirst, date } = props
     const fdate = day(date).format("DD MMMM YYYY")  
-    const { url: hero }  = props.hero
-    // const { id } = props.sys      
+    const { url: hero }  = props.hero  
     const { fullname, jobTitle, profilePicture } = props.blogger
 
     return (
