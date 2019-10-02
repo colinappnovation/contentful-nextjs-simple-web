@@ -4,7 +4,6 @@ import Layout from '../components/layout';
 // import PostList from '../components/PostList';
 
 // import dynamic from 'next/dynamic'
-
 // const PostList = dynamic(
 //   () => import('../components/PostList'),
 //   { ssr: true }
@@ -12,7 +11,6 @@ import Layout from '../components/layout';
 
 // REST API BASED
 import api from '../lib/api'
-import { timeInterval } from 'rxjs/operator/timeInterval';
 
 // HOOKS EXAMPLE
 // import { useEffect, useState } from 'react';

@@ -1,6 +1,6 @@
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
-import Post from '../post';
+import { useQuery } from '@apollo/react-hooks'
+import { gql } from 'apollo-boost'
+import PostDetail from './postDetail'
 
 export const GET_POSTS = gql`
 	{
@@ -26,16 +26,21 @@ export const GET_POSTS = gql`
 			}
 		}
 	}
-`;
+`
 
 function PostList() {
-	const { data } = useQuery(GET_POSTS, {
+	const { data, error, loading } = useQuery(GET_POSTS, {
 		notifyOnNetworkStatusChange: true
-	});
-	if (data && data.postCollection) {
-		return data && data.postCollection.items.map((p) => <Post key={p.sys.id} {...p} />);
-	}
-	return <div>Loading...</div>;
+	})
+
+	if (error) return <div>Error loading posts...</div>
+  	if (loading) return <div>Loading...</div>
+
+	const { postCollection } = data
+
+	return (
+		postCollection.items.map((p) => <PostDetail key={p.sys.id} {...p} />)
+	)
 }
 
 export default PostList;
