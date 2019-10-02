@@ -1,7 +1,7 @@
-const Author = ({profilePicture, fullname, jobTitle, apollo}) => {
+const Author = ({profilePicture, fullname, jobTitle }) => {
 
     // Allow apollo and/or REST API usage
-    const img = apollo == 1 ? profilePicture.url : profilePicture.fields.file.url
+    const img = profilePicture.url || profilePicture.fields.file.url
 
     return (
         <div className="flex items-center">
