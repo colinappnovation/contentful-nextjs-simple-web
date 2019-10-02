@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
-import PostDetail from './postDetail'
+import Post from '../post'
 
 export const GET_POSTS = gql`
 	{
@@ -39,7 +39,7 @@ function PostList() {
 	const { postCollection } = data
 
 	return (
-		postCollection.items.map((p) => <PostDetail key={p.sys.id} {...p} />)
+		postCollection.items.map((p) => <Post key={p.sys.id} {...p} />)
 	)
 }
 

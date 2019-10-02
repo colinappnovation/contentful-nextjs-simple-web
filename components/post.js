@@ -6,7 +6,8 @@ import Date from '../components/Date'
 function Post(props) {
    
     const { slug, title, standfirst, date } = props 
-    const { url: hero }  = props.hero.fields.file
+    const hero  = props.hero.url || props.hero.fields.file.url
+    const authorFields = props.blogger.fields || props.blogger
 
     return (
       <div className="max-w-sm rounded overflow-hidden shadow-lg m-1">
@@ -22,7 +23,7 @@ function Post(props) {
               <Date dt={date} />
               <p className="text-gray-700 text-base">{standfirst}</p>
           </div>
-          <Author {...props.blogger.fields} />
+          <Author {...authorFields} />
         </div>
       </div>
     )
