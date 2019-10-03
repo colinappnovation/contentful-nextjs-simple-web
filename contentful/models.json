@@ -12,7 +12,7 @@
         "id": "post",
         "type": "ContentType",
         "createdAt": "2019-08-27T08:58:13.595Z",
-        "updatedAt": "2019-08-28T16:30:28.002Z",
+        "updatedAt": "2019-09-30T15:45:02.319Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -20,8 +20,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 9,
-        "publishedAt": "2019-08-28T16:30:28.002Z",
+        "publishedVersion": 15,
+        "publishedAt": "2019-09-30T15:45:02.319Z",
         "firstPublishedAt": "2019-08-27T08:58:14.365Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "1kHBFrjAM6hYGCsHfGfTuK"
           }
         },
-        "publishedCounter": 5,
-        "version": 10,
+        "publishedCounter": 8,
+        "version": 16,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -161,7 +161,7 @@
         "id": "author",
         "type": "ContentType",
         "createdAt": "2019-08-28T16:26:10.208Z",
-        "updatedAt": "2019-08-28T16:26:10.544Z",
+        "updatedAt": "2019-09-27T17:11:44.413Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -169,8 +169,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2019-08-28T16:26:10.544Z",
+        "publishedVersion": 3,
+        "publishedAt": "2019-09-27T17:11:44.413Z",
         "firstPublishedAt": "2019-08-28T16:26:10.544Z",
         "createdBy": {
           "sys": {
@@ -186,8 +186,8 @@
             "id": "1kHBFrjAM6hYGCsHfGfTuK"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 4,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -240,6 +240,204 @@
           "linkType": "Asset"
         }
       ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "gb95exrubjhf"
+          }
+        },
+        "id": "location",
+        "type": "ContentType",
+        "createdAt": "2019-09-09T16:37:23.778Z",
+        "updatedAt": "2019-09-09T16:54:05.379Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2019-09-09T16:54:05.379Z",
+        "firstPublishedAt": "2019-09-09T16:37:24.173Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1kHBFrjAM6hYGCsHfGfTuK"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1kHBFrjAM6hYGCsHfGfTuK"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1kHBFrjAM6hYGCsHfGfTuK"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Location",
+      "description": "Location used for Offices",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "address",
+          "name": "Address",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "mapCoords",
+          "name": "Map Coords",
+          "type": "Location",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "telephone",
+          "name": "Telephone",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "city",
+          "name": "City",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "city"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "gb95exrubjhf"
+          }
+        },
+        "id": "city",
+        "type": "ContentType",
+        "createdAt": "2019-09-09T16:39:11.686Z",
+        "updatedAt": "2019-09-09T16:39:12.127Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2019-09-09T16:39:12.127Z",
+        "firstPublishedAt": "2019-09-09T16:39:12.127Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1kHBFrjAM6hYGCsHfGfTuK"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1kHBFrjAM6hYGCsHfGfTuK"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1kHBFrjAM6hYGCsHfGfTuK"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "City",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "image"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        }
+      ]
     }
   ],
   "editorInterfaces": [
@@ -254,7 +452,7 @@
             "linkType": "Space"
           }
         },
-        "version": 10,
+        "version": 16,
         "createdAt": "2019-08-27T08:58:14.581Z",
         "createdBy": {
           "sys": {
@@ -263,7 +461,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2019-08-28T16:30:28.703Z",
+        "updatedAt": "2019-09-30T15:45:02.939Z",
         "updatedBy": {
           "sys": {
             "id": "1kHBFrjAM6hYGCsHfGfTuK",
@@ -339,7 +537,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 4,
         "createdAt": "2019-08-28T16:26:10.681Z",
         "createdBy": {
           "sys": {
@@ -348,7 +546,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2019-08-28T16:26:11.254Z",
+        "updatedAt": "2019-09-27T17:11:44.992Z",
         "updatedBy": {
           "sys": {
             "id": "1kHBFrjAM6hYGCsHfGfTuK",
@@ -384,6 +582,133 @@
         },
         {
           "fieldId": "profilePicture",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "gb95exrubjhf",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 6,
+        "createdAt": "2019-09-09T16:37:24.299Z",
+        "createdBy": {
+          "sys": {
+            "id": "1kHBFrjAM6hYGCsHfGfTuK",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2019-09-09T16:54:06.090Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1kHBFrjAM6hYGCsHfGfTuK",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "location",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "address",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "mapCoords",
+          "widgetId": "locationEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "telephone",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "city",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "gb95exrubjhf",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2019-09-09T16:39:12.250Z",
+        "createdBy": {
+          "sys": {
+            "id": "1kHBFrjAM6hYGCsHfGfTuK",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2019-09-09T16:39:12.892Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1kHBFrjAM6hYGCsHfGfTuK",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "city",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
           "widgetId": "assetLinkEditor",
           "widgetNamespace": "builtin"
         }
@@ -561,6 +886,8 @@
         "ContentDelivery": [
         ],
         "Environments": [
+        ],
+        "EnvironmentAliases": [
         ]
       },
       "sys": {
@@ -638,6 +965,8 @@
         "ContentDelivery": [
         ],
         "Environments": [
+        ],
+        "EnvironmentAliases": [
         ]
       },
       "sys": {
@@ -889,6 +1218,8 @@
         "ContentDelivery": [
         ],
         "Environments": [
+        ],
+        "EnvironmentAliases": [
         ]
       },
       "sys": {
@@ -1020,6 +1351,8 @@
         "ContentDelivery": [
         ],
         "Environments": [
+        ],
+        "EnvironmentAliases": [
         ]
       },
       "sys": {
