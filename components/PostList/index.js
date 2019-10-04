@@ -4,7 +4,7 @@ import Post from '../post'
 
 export const GET_POSTS = gql`
 	{
-		postCollection(order: [date_DESC], limit: 10) {
+		postCollection(order: [date_DESC], limit: 6) {
 			items {
 				sys {
 					id

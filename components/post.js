@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Author from '../components/Author'
 import Date from '../components/Date'
 
-function Post(props) {
+const Post = (props) => {
    
     const { slug, title, standfirst, date } = props 
     const hero  = props.hero.url || props.hero.fields.file.url

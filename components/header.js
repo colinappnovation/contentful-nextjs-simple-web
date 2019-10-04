@@ -19,11 +19,19 @@ const Header = () => {
             </Link>
             </li>
 
+            <li key="prismic" className="mr-6">
+            <Link href="/prismic">
+                <a className="block mr-4 text-white hover:font-extrabold">Home(Prismic)</a>
+            </Link>
+            </li>
+
             <li key="contact-us" className="mr-6">
             <Link href="/contact-us">
                 <a className="block mr-4 text-white hover:font-extrabold">Contact Us</a>
             </Link>
             </li>
+
+
         </ul>
         </div>
         </>

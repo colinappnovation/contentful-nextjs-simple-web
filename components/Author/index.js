@@ -1,8 +1,14 @@
 
-const Author = ({fullname, jobTitle, profilePicture}) => {
+const Author = ({fullname, jobTitle, profilePicture, profilepicture, jobtitle}) => {
   
-    // Allow apollo and/or REST API usage
-    const img = profilePicture.url || profilePicture.fields.file.url
+    let img = ''
+    if (profilepicture !== undefined) {
+      // Prismic
+      img = profilepicture.url
+    } else {
+      // Allow apollo and/or REST API usage
+      img = profilePicture.url || profilePicture.fields.file.url
+    }
 
     return (
         <div className="flex items-center">
@@ -12,7 +18,7 @@ const Author = ({fullname, jobTitle, profilePicture}) => {
             </picture>            
             <div className="text-sm">
               <p className="text-gray-500 text-sm">{fullname}</p>
-              <p className="text-gray-500 text-sm mt-0">{jobTitle}</p>
+              <p className="text-gray-500 text-sm mt-0">{jobTitle || jobtitle}</p>
             </div>
           </div>
     )
