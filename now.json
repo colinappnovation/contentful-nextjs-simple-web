@@ -3,7 +3,8 @@
     "env": {
       "SPACE_ID": "@space_id",
       "ACCESS_TOKEN": "@access_token",
-      "MAPBOX_TOKEN": "@mapbox_token"
+      "MAPBOX_TOKEN": "@mapbox_token",
+      "PRISMIC_TOKEN": "@prismic_token"
     }
   }
 }

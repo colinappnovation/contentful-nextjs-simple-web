@@ -16,7 +16,7 @@ const markerStlye = {
 const Markers = ({ offices } = props) => {
 	return offices.map((l) => (
 		<Marker key={l.name} latitude={parseFloat(l.mapCoords.lat)} longitude={parseFloat(l.mapCoords.lon)}>
-			<img src="/static/marker.png" style={markerStlye} />
+			<img src="/public/marker.png" style={markerStlye} />
 		</Marker>
 	));
 };
