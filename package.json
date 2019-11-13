@@ -29,7 +29,7 @@
     "dev": "node server.js",
     "start": "next start",
     "now-build": "next build",
-    "netlify-build": "node ./scripts/create-env.js && next build"
+    "netlify-build": "node ./scripts/create-env.js && next build && next export"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
