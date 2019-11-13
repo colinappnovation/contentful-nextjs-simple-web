@@ -1,0 +1,2 @@
+const fs = require('fs')
+fs.writeFileSync('./.env', `SPACE_ID=${process.env.SPACE_ID}\nACCESS_TOKEN=${process.env.ACCESS_TOKEN}\nMAPBOX_TOKEN=${process.env.MAPBOX_TOKEN}\nPRISMIC_TOKEN=${process.env.PRISMIC_TOKEN}\n`)
