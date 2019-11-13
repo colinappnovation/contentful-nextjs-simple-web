@@ -5,7 +5,7 @@ const Dotenv = require("dotenv-webpack");
 const withPurgeCss = require("next-purgecss");
 
 const nextConfig = {
-  target: "serverless",
+  target: "server",
   poweredByHeader: false,
   cssModules: false
 };
