@@ -4,9 +4,8 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
-  - name: Test
+  - name: Build
     task:
       jobs:
         - name: Test
@@ -17,4 +16,5 @@ blocks:
             - npm install
             - cache store
             - npm run build --if-present
-            - npm test
+      secrets:
+        - name: Environment Variables
